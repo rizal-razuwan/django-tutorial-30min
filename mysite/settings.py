@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     #Third Party Package
     'rest_framework', #new
     'drf_yasg', #new
+    'corsheaders', #new
 
     #Apps
     'myapi',  #new
@@ -49,11 +50,21 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'corsheaders.middleware.CorsMiddleware', #new
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+#CORS configuration
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',
+    'http://localhost:8000',
+)
+
+
+
 
 ROOT_URLCONF = 'mysite.urls'
 
